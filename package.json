@@ -1,6 +1,7 @@
 {
-  "name": "image-search-app",
+
   "homepage": "https://anwar08ali.github.io/",
+  "name": "image-search-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
