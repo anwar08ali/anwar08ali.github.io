@@ -1,7 +1,7 @@
 if (navigator.serviceWorker) {
   console.log("%c Service worker supported", "color:green");
   navigator.serviceWorker
-    .register("./serviceWorkers/custom-sw-cache-pages.js")
+    .register("./serviceWorkers/custom-sw-cache-fullApp.js")
     .then((res) => {
       console.log("Service worker add:", res);
     })
