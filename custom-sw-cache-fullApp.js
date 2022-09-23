@@ -25,6 +25,14 @@ self.addEventListener("activate", (e) => {
 // call fetch event
 self.addEventListener("fetch", (e) => {
   console.log("SW: Fetching...");
+  console.warn("url:",e.request.url)
+  if(!navigator.online){
+	  e.waitUntil(
+	  this.registration.showNotification("Internet is not working,{
+		  body: "App is running in offline mode."
+	  })
+	  )
+  }
   e.respondWith(
     caches.match(e.request).then(function (response) {
       // Cache hit - return response
