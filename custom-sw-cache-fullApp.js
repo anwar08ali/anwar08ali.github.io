@@ -25,13 +25,19 @@ self.addEventListener("activate", (e) => {
 // call fetch event
 self.addEventListener("fetch", (e) => {
   console.log("SW: Fetching...");
-  console.warn("url:",e.request.url)
-  if(!navigator.online){
-	  e.waitUntil(
-	  this.registration.showNotification("Internet is not working,{
-		  body: "App is running in offline mode."
-	  })
-	  )
+  console.warn("url:", e.request.url);
+  if (!navigator.online) {
+    if (
+      e.request.url === "http://localhost:5500/index.js" ||
+      e.request.url === "https://anwar08ali.github.io/index.js"
+    ){
+      e.waitUntil(
+        this.registration.showNotification("Internet is not working", {
+          body: "App is running in offline mode.",
+        })
+      );
+    }
+      
   }
   e.respondWith(
     caches.match(e.request).then(function (response) {
