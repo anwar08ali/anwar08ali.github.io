@@ -25,7 +25,7 @@ self.addEventListener("activate", (e) => {
 // call fetch event
 self.addEventListener("fetch", (e) => {
   console.log("SW: Fetching...");
-  console.warn("url:", e.request.url);
+  console.warn("url:", navigator.online,navigator);
   if (!navigator.online) {
     if (
       e.request.url === "http://localhost:5500/index.js" ||
